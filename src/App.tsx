@@ -30,7 +30,7 @@ function App() {
                   {data.mirrors.map((mirror, idx) => (
                     <div
                       key={idx}
-                      className="bg-cyan-900 hover:bg-cyan-800 min-h-64 transition-colors duration-200 p-4 rounded-lg shadow-md flex flex-col"
+                      className="bg-cyan-900/50 hover:bg-cyan-800/50 backdrop-blur-sm min-h-64 transition-colors duration-200 p-4 rounded-lg shadow-md flex flex-col"
                     >
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-semibold text-lg text-white truncate">
