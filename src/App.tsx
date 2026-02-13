@@ -73,7 +73,10 @@ function App() {
                   {contributorsData
                     .sort((a, b) => b.contributions - a.contributions)
                     .map((contributor) => (
-                      <div
+                      <a
+                        aria-label={`Go to ${contributor.login.toLowerCase()}'s profile in Github`}
+                        href={`https://github.com/${contributor.login}`}
+                        target="_blank"
                         key={contributor.id}
                         className="p-4 rounded-md border flex flex-col gap-2 items-center justify-center hover:scale-125 transition-transform"
                       >
@@ -88,8 +91,8 @@ function App() {
                             className="grayscale-100"
                           />
                         </div>
-                        <p>{contributor.login}</p>
-                      </div>
+                        <p>{contributor.login.toLowerCase()}</p>
+                      </a>
                     ))}
                 </div>
               )}
