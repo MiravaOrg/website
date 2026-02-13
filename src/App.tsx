@@ -3,9 +3,11 @@ import {
   githubContributorsListQueryOptions,
   miravaMirrorsListQueryOptions,
 } from "./lib/api";
-import GlowingStars from "./components/GlowingStars";
 import Navbar from "./components/Navbar";
 import { Link, Loader } from "lucide-react";
+import { lazy } from "react";
+
+const GlowingStars = lazy(async () => import("./components/GlowingStars"))
 
 function App() {
   const { data, isLoading } = useQuery(miravaMirrorsListQueryOptions);
