@@ -23,7 +23,7 @@ function App() {
             <section>
               <h2 className="font-bold text-2xl text-center">Mirrors List</h2>
               {isLoading && (
-                <Loader size={32} className="animate-spin text-white" />
+                <Loader size={32} className="animate-spin text-white text-center w-full" />
               )}
               {data && (
                 <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
