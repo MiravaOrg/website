@@ -49,7 +49,7 @@ function App() {
                   {data.mirrors.map((mirror, idx) => (
                     <div
                       key={idx}
-                      className="bg-sky-900 hover:bg-sky-800 min-h-64 transition-colors duration-200 p-4 rounded-lg shadow-md flex flex-col"
+                      className="bg-cyan-900 hover:bg-cyan-800 min-h-64 transition-colors duration-200 p-4 rounded-lg shadow-md flex flex-col"
                     >
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-semibold text-lg text-white truncate">
@@ -58,12 +58,12 @@ function App() {
                         <a
                           href={mirror.url}
                           target="_blank"
-                          className="text-sky-400 hover:text-sky-300 transition-colors"
+                          className="text-cyan-400 hover:text-cyan-300 transition-colors"
                         >
                           <Link size={20} />
                         </a>
                       </div>
-                      <p className="text-sm text-sky-300 mb-3 line-clamp-3">
+                      <p className="text-sm text-cyan-300 mb-3 line-clamp-3">
                         {mirror.description}
                       </p>
                       <div className="flex-1"></div>
@@ -71,7 +71,7 @@ function App() {
                         {mirror.packages.map((p) => (
                           <span
                             key={p}
-                            className="bg-sky-600 text-sky-100 text-xs font-medium px-2 py-1 rounded-full hover:bg-sky-500 transition-colors"
+                            className="bg-cyan-600 text-cyan-100 text-xs font-medium px-2 py-1 rounded-full hover:bg-cyan-500 transition-colors"
                           >
                             {p}
                           </span>
@@ -97,7 +97,7 @@ function App() {
                         className="p-4 rounded-md border flex flex-col gap-2 items-center justify-center hover:scale-125 transition-transform"
                       >
                         <div className="rounded-full overflow-hidden relative">
-                          <div className="absolute inset-0 bg-sky-500/25 z-10"></div>
+                          <div className="absolute inset-0 bg-cyan-500/25 z-10"></div>
                           <img
                             src={contributor.avatar_url}
                             alt={`${contributor.login.toLowerCase()}'s Avatar`}
