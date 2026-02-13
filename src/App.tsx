@@ -1,0 +1,128 @@
+import { useQuery } from "@tanstack/react-query";
+import {
+  githubContributorsListQueryOptions,
+  miravaMirrorsListQueryOptions,
+} from "./lib/api";
+import GlowingStars from "./components/GlowingStars";
+import NavbarLinkIcon from "./components/NavbarLinkIcon";
+import { Coffee, Github, Link, Loader } from "lucide-react";
+
+function App() {
+  const { data, isLoading } = useQuery(miravaMirrorsListQueryOptions);
+  const { data: contributorsData } = useQuery(
+    githubContributorsListQueryOptions,
+  );
+
+  return (
+    <>
+      <div>
+        <GlowingStars />
+        <div className="z-20 w-full min-h-screen text-white">
+          <nav className="sticky top-0 left-0 right-0 p-4 px-8 flex justify-between items-center z-20 backdrop-blur-xl">
+            <NavbarLinkIcon
+              Icon={Github}
+              label="Github"
+              link="https://github.com/miravaorg/mirava"
+            />
+            <div>
+              <h1 className="font-bold text-4xl text-center">Mirava</h1>
+              <p className="text-center hidden md:block opacity-80">
+                Mirava is a curated list of Iranian package mirrors, providing
+                reliable and fast access to essential software resources within
+                Iran.{" "}
+              </p>
+            </div>
+            <NavbarLinkIcon
+              Icon={Coffee}
+              label="Donate"
+              link="https://www.coffeete.ir/geedook"
+            />
+          </nav>
+          <main className="w-full flex flex-col items-center px-2 md:px-[10vw] my-10">
+            <section>
+              <h2 className="font-bold text-2xl text-center">Mirrors List</h2>
+              {isLoading && (
+                <Loader size={32} className="animate-spin text-white" />
+              )}
+              {data && (
+                <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {data.mirrors.map((mirror, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-sky-900 hover:bg-sky-800 min-h-64 transition-colors duration-200 p-4 rounded-lg shadow-md flex flex-col"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <h3 className="font-semibold text-lg text-white truncate">
+                          {mirror.name}
+                        </h3>
+                        <a
+                          href={mirror.url}
+                          target="_blank"
+                          className="text-sky-400 hover:text-sky-300 transition-colors"
+                        >
+                          <Link size={20} />
+                        </a>
+                      </div>
+                      <p className="text-sm text-sky-300 mb-3 line-clamp-3">
+                        {mirror.description}
+                      </p>
+                      <div className="flex-1"></div>
+                      <div className="flex flex-wrap gap-2">
+                        {mirror.packages.map((p) => (
+                          <span
+                            key={p}
+                            className="bg-sky-600 text-sky-100 text-xs font-medium px-2 py-1 rounded-full hover:bg-sky-500 transition-colors"
+                          >
+                            {p}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
+            <section>
+              <h2 className="font-bold text-2xl text-center">Contributors</h2>
+              <p className="text-center font-light">
+                Special thanks to our contributors!
+              </p>
+              {contributorsData && (
+                <div className="w-full flex flex-wrap justify-center gap-6 mt-8">
+                  {contributorsData
+                    .sort((a, b) => b.contributions - a.contributions)
+                    .map((contributor) => (
+                      <div
+                        key={contributor.id}
+                        className="p-4 rounded-md border flex flex-col gap-2 items-center justify-center hover:scale-125 transition-transform"
+                      >
+                        <div className="rounded-full overflow-hidden relative">
+                          <div className="absolute inset-0 bg-sky-500/25 z-10"></div>
+                          <img
+                            src={contributor.avatar_url}
+                            alt={`${contributor.login.toLowerCase()}'s Avatar`}
+                            width={96}
+                            height={96}
+                            loading="lazy"
+                            className="grayscale-100"
+                          />
+                        </div>
+                        <p>{contributor.login}</p>
+                      </div>
+                    ))}
+                </div>
+              )}
+            </section>
+          </main>
+          <footer className="p-2">
+            <p className="text-xs opacity-80 text-center">
+              Built with 🩵 by Mirava Contributors
+            </p>
+          </footer>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default App;
