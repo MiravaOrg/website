@@ -4,8 +4,8 @@ import {
   miravaMirrorsListQueryOptions,
 } from "./lib/api";
 import GlowingStars from "./components/GlowingStars";
-import NavbarLinkIcon from "./components/NavbarLinkIcon";
-import { Coffee, Github, Link, Loader } from "lucide-react";
+import Navbar from "./components/Navbar";
+import { Link, Loader } from "lucide-react";
 
 function App() {
   const { data, isLoading } = useQuery(miravaMirrorsListQueryOptions);
@@ -18,26 +18,7 @@ function App() {
       <div>
         <GlowingStars />
         <div className="z-20 w-full min-h-screen text-white">
-          <nav className="sticky top-0 left-0 right-0 p-4 px-8 flex justify-between items-center z-20 backdrop-blur-xl">
-            <NavbarLinkIcon
-              Icon={Github}
-              label="Github"
-              link="https://github.com/miravaorg/mirava"
-            />
-            <div>
-              <h1 className="font-bold text-4xl text-center">Mirava</h1>
-              <p className="text-center hidden md:block opacity-80">
-                Mirava is a curated list of Iranian package mirrors, providing
-                reliable and fast access to essential software resources within
-                Iran.{" "}
-              </p>
-            </div>
-            <NavbarLinkIcon
-              Icon={Coffee}
-              label="Donate"
-              link="https://www.coffeete.ir/geedook"
-            />
-          </nav>
+          <Navbar />
           <main className="w-full flex flex-col items-center px-2 md:px-[10vw] my-10">
             <section>
               <h2 className="font-bold text-2xl text-center">Mirrors List</h2>
