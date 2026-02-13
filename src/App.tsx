@@ -83,7 +83,7 @@ function App() {
               )}
             </section>
             <section>
-              <h2 className="font-bold text-2xl text-center">Contributors</h2>
+              <h2 className="font-bold text-2xl text-center mt-2">Contributors</h2>
               <p className="text-center font-light">
                 Special thanks to our contributors!
               </p>
