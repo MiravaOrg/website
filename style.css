@@ -69,7 +69,7 @@ body {
 
 /* ---------------- HERO ---------------- */
 .hero {
-    margin: 4rem auto 3rem;
+    margin: 2rem auto 2rem;
     padding: 3rem 2rem;
     max-width: 1000px;
     text-align: center;
@@ -138,7 +138,7 @@ body {
 /* ---------------- SECTIONS ---------------- */
 .section {
   max-width: 1100px;
-  margin: 3.5rem auto;
+  margin: 2.5rem auto;
   padding: 0 1.5rem;
 }
 
@@ -152,8 +152,6 @@ body {
 .mirror-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
-  gap: 20px; /* space between cards */
-  margin-top: 1rem;
 }
 /* MIRROR CARD */
 .mirror-card {
@@ -358,7 +356,7 @@ body {
 
 /* ---------------- FOOTER ---------------- */
 .footer {
-  margin: 4.5rem auto 2rem;
+  margin: 2.5rem auto 2rem;
   padding: 1.2rem;
   max-width: 900px;
   text-align: center;
@@ -536,8 +534,14 @@ body {
 
 /* Tablets / Medium screens */
 @media (max-width: 992px) {
+.footer {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
   .hero {
     padding: 2.5rem 1.5rem;
+     margin-left: 1rem;
+  margin-right: 1rem;
   }
 
   .hero-text h1 {
@@ -627,4 +631,74 @@ body {
     font-size: 0.65rem;
     padding: 3px 6px;
   }
+}
+
+
+/* Search Bar Styling */
+.search-container {
+  margin-bottom: 20px; /* Space below the search bar */
+  text-align: center; /* Center the search bar */
+}
+
+.search-input {
+  width: 80%; /* Adjust width as needed */
+  max-width: 500px; /* Maximum width for larger screens */
+  padding: 12px 20px;
+  border: none; /* Remove default border */
+  border-radius: 25px; /* Rounded corners for a beautiful look */
+  font-size: 16px;
+  color: #e0e0e0; /* Light text color */
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle background */
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: all 0.3s ease; /* Smooth transitions */
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Lighter placeholder text */
+}
+
+.search-input:focus {
+  outline: none; /* Remove outline on focus */
+  background-color: rgba(255, 255, 255, 0.2); /* Slightly more opaque on focus */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow on focus */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .search-input {
+    width: 90%;
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+}
+
+/* Assuming you have a class for mirror cards like .mirror-card */
+.mirror-card {
+  /* Add styles for your mirror cards if not already present */
+  background-color: rgba(255, 255, 255, 0.05); /* Example styling */
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mirror-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Assuming you have a container for mirror cards like #mirrorCards */
+.mirror-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+/* Style for the glass effect if not already defined */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
