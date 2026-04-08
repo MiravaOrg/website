@@ -62,7 +62,10 @@ function showToast() {
    CONTRIBUTORS (STATIC LIST)
 --------------------------------*/
 const contributors = [
-    "GeeDook",
+   "JavadGhane",
+"mohammadhasananisi",
+"mohammadHasanAkbari",
+"GeeDook",
     "ArmanTaheriGhaleTaki",
     "maede-ps",
   "amirparsadd",
@@ -81,21 +84,37 @@ const contributors = [
 const contributorsContainer = document.getElementById("contributors");
 
 if(contributorsContainer){
-contributors.forEach(username => {
-  const a = document.createElement("a");
-  a.href = `https://github.com/${username}`;
-  a.target = "_blank";
-  a.rel = "noopener";
+  contributors.forEach(username => {
+    const a = document.createElement("a");
+    a.href = `https://github.com/${username}`;
+    a.target = "_blank";
+    a.rel = "noopener";
 
-  const img = document.createElement("img");
-  img.src = `https://github.com/${username}.png`;
-  img.alt = username;
-  img.title = username;
+    const img = document.createElement("img");
+    img.src = `https://github.com/${username}.png`;
+    img.alt = username;
+    img.title = username;
+    
+    // Local default image as data URI (no internet needed)
+    const defaultAvatar = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Crect width="100" height="100" fill="%234dffb8"/%3E%3Ctext x="50" y="50" font-size="40" text-anchor="middle" dy=".3em" fill="%23000"%3E👤%3C/text%3E%3C/svg%3E';
+    
+    img.onerror = function() {
+      this.src = defaultAvatar;
+      this.style.backgroundColor = "#4dffb8";
+      this.style.objectFit = "cover";
+    };
+    
+    // Add loading animation
+    img.style.opacity = "0";
+    img.style.transition = "opacity 0.3s";
+    img.onload = function() {
+      this.style.opacity = "1";
+    };
 
-  a.appendChild(img);
-  contributorsContainer.appendChild(a);
-});}
-
+    a.appendChild(img);
+    contributorsContainer.appendChild(a);
+  });
+}
 
 // radar 
 const mirrorTableBody = document.querySelector("#mirrorTable tbody");
