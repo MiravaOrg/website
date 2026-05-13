@@ -1,10 +1,11 @@
-@import "https://lib.arvancloud.ir/vazir-font/33.003/Vazirmatn-font-face.css";
 @import "tailwindcss";
 
 * {
   font-family: "Vazirmatn", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* colors {
-  background-color: #;
-} */
+body, #root {
+  background-color: #054e60;
+}

@@ -1,10 +1,25 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" style="background-color:#054e60">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mirava</title>
+    <meta name="theme-color" content="#054e60" />
+    <meta name="color-scheme" content="dark" />
+    <title>Mirava — Iranian Package Mirrors</title>
+    <!-- preconnect so font & avatar requests start immediately -->
+    <link rel="preconnect" href="https://lib.arvancloud.ir" crossorigin />
+    <link rel="preconnect" href="https://avatars.githubusercontent.com" crossorigin />
+    <!-- non-blocking font load: preload fires early, onload swaps rel to stylesheet -->
+    <link
+      rel="preload"
+      href="https://lib.arvancloud.ir/vazir-font/33.003/Vazirmatn-font-face.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://lib.arvancloud.ir/vazir-font/33.003/Vazirmatn-font-face.css" />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>
